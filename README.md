@@ -6,8 +6,8 @@ Welcome to Montu's technical challenge challenge for Machine Learning Engineers!
 
 - The challenge is divided into two parts ([Model Development](#part-1-model-development) and [Service Development](#part-2-service-development)) and a bonus part ([Deployment](#bonus-part-deployment)).
   - You can complete the first two parts without deploying your service, but if you have the time, we encourage you to complete the deployment as well.
-- We value your time and understand that you may not be able to complete the deployment part, so it is purely optional and we could tease that out a bit further in the techincal interview.
-  - On an average, we expect the challenge to take around 3-4 hours to complete, but feel free to take as much time as you need and do let us know if you are time-constrained.
+- We value your time and understand that you may not be able to complete the deployment part, so it is purely optional and we could tease that out a bit further in the technical interview.
+  - On an average, we expect the challenge to take around 3-4 hours of focused time to complete. But it can vary a lot based on other factors like your familiarity with the problem, the tools you use, your approach to the problem, etc. So, feel free to take as much time as you need. Also, do let us know if you are time-constrained. We can help you prioritize tasks and potentially cut down on the scope of the challenge depending on your situation.
 
 ### Assessment Criteria
 
@@ -118,7 +118,7 @@ In this part, you will deploy your service to a cloud provider of your choice.
 5. 🌩️ **Deployment**: You will deploy your service to a cloud provider of your choice. You can use any cloud provider you like (e.g. AWS, GCP).
   
    - Ideally, we would deploy our entire end-to-end pipelines to the cloud, that would be a bit of an overkill for this challenge. So, instead if you choose to do this bit, you can just deploy your end service to the cloud.
-   - Consider the efficiency, scalability, security, and cost-effectiveness of your deployment. Again, this is purely optional and we could tease that out a bit further in the techincal interview.
+   - Consider the efficiency, scalability, security, and cost-effectiveness of your deployment. Again, this is purely optional and we could tease that out a bit further in the technical interview.
    - [ ] **Optional**: Deploy your service to a cloud provider of your choice as per your architecture of choice.
 
 
