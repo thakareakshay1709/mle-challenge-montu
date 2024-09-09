@@ -1,0 +1,202 @@
+[
+    {
+        "text": "Maria Garcia is the new CEO.",
+        "redacted_text": "[NAME] is the new CEO."
+    },
+    {
+        "text": "The company is located at 202 Grenfell Street, Adelaide, SA 5000.",
+        "redacted_text": "The company is located at [ADDRESS]."
+    },
+    {
+        "text": "The event will be held at the Hilton Hotel, 259 Pitt Street, Sydney. For more information, visit www.eventwebsite.com.",
+        "redacted_text": "The event will be held at the Hilton Hotel, [ADDRESS]. For more information, visit www.eventwebsite.com."
+    },
+    {
+        "text": "My email address is johnsmith@example.com.",
+        "redacted_text": "My email address is [EMAIL]."
+    },
+    {
+        "text": "Maria Rodriguez, working at Microsoft, can be reached at maria.rodriguez@microsoft.com or 0412 345 678.",
+        "redacted_text": "[NAME], working at [ORGANIZATION], can be reached at [EMAIL] or [PHONE_NUMBER]."
+    },
+    {
+        "text": "Acme Corp's headquarters is located at 456 Swanston Street, Melbourne. Their website is www.acmecorp.com.",
+        "redacted_text": "[ORGANIZATION]'s headquarters is located at [ADDRESS]. Their website is www.acmecorp.com."
+    },
+    {
+        "text": "You can reach me at jane.doe@company.org.",
+        "redacted_text": "You can reach me at [EMAIL]."
+    },
+    {
+        "text": "My phone number is 0412 345 678.",
+        "redacted_text": "My phone number is [PHONE_NUMBER]."
+    },
+    {
+        "text": "My name is John Smith.",
+        "redacted_text": "My name is [NAME]."
+    },
+    {
+        "text": "The meeting with Maria Garcia from Google will be held at their office located at 48 Pirrama Road, Pyrmont NSW 2009.",
+        "redacted_text": "The meeting with [NAME] from [ORGANIZATION] will be held at their office located at [ADDRESS]."
+    },
+    {
+        "text": "Apple Inc. released a new product.",
+        "redacted_text": "[ORGANIZATION] released a new product."
+    },
+    {
+        "text": "Please call me at +61 4 1234 5678.",
+        "redacted_text": "Please call me at [PHONE_NUMBER]."
+    },
+    {
+        "text": "The project is funded by the National Science Foundation.",
+        "redacted_text": "The project is funded by the [ORGANIZATION]."
+    },
+    {
+        "text": "The international number is +61 2 9374 4000.",
+        "redacted_text": "The international number is [PHONE_NUMBER]."
+    },
+    {
+        "text": "The meeting is scheduled for 303 Collins Street, Melbourne, VIC 3000.",
+        "redacted_text": "The meeting is scheduled for [ADDRESS]."
+    },
+    {
+        "text": "The package for David Lee was delivered to 55 King William Street, Adelaide, SA 5000. The tracking number is 7B6C5D4E3F2G1H.",
+        "redacted_text": "The package for [NAME] was delivered to [ADDRESS]. The tracking number is 7B6C5D4E3F2G1H."
+    },
+    {
+        "text": "I have an interview at Microsoft tomorrow.",
+        "redacted_text": "I have an interview at [ORGANIZATION] tomorrow."
+    },
+    {
+        "text": "Please send the invoice to Acme Corp at 456 Collins Street, Melbourne. Their contact number is 03 9663 3333.",
+        "redacted_text": "Please send the invoice to [ORGANIZATION] at [ADDRESS]. Their contact number is [PHONE_NUMBER]."
+    },
+    {
+        "text": "The order confirmation for John Smith was sent to johnsmith@email.com.",
+        "redacted_text": "The order confirmation for [NAME] was sent to [EMAIL]."
+    },
+    {
+        "text": "The customer support team can be reached at support@company.com or 1300 555 666.",
+        "redacted_text": "The customer support team can be reached at [EMAIL] or [PHONE_NUMBER]."
+    },
+    {
+        "text": "The conference was organized by the Association for Computing Machinery.",
+        "redacted_text": "The conference was organized by the [ORGANIZATION]."
+    },
+    {
+        "text": "I received an email from john.doe@gmail.com regarding the upcoming conference in Melbourne.",
+        "redacted_text": "I received an email from [EMAIL] regarding the upcoming conference in Melbourne."
+    },
+    {
+        "text": "The event will be held at 789 Adelaide Street, Level 3, Brisbane, QLD 4000.",
+        "redacted_text": "The event will be held at [ADDRESS]."
+    },
+    {
+        "text": "The package was delivered to John Doe at 363 Adelaide Street, Brisbane. The delivery confirmation was sent to johndoe@example.com.",
+        "redacted_text": "The package was delivered to [NAME] at [ADDRESS]. The delivery confirmation was sent to [EMAIL]."
+    },
+    {
+        "text": "The invoice for the services provided to Google was sent to their billing address at 1 Darling Island Road, Pyrmont NSW 2009.",
+        "redacted_text": "The invoice for the services provided to [ORGANIZATION] was sent to their billing address at [ADDRESS]."
+    },
+    {
+        "text": "You can reach the customer service at 1300 123 456.",
+        "redacted_text": "You can reach the customer service at [PHONE_NUMBER]."
+    },
+    {
+        "text": "The award goes to Emily Johnson.",
+        "redacted_text": "The award goes to [NAME]."
+    },
+    {
+        "text": "I'd like to cancel my subscription to the service. My account email is cancel@subscription.com.",
+        "redacted_text": "I'd like to cancel my subscription to the service. My account email is [EMAIL]."
+    },
+    {
+        "text": "Please update your address in your profile to 789 Queen Street, Brisbane. You can also update your phone number to +61 7 3333 4444.",
+        "redacted_text": "Please update your address in your profile to [ADDRESS]. You can also update your phone number to [PHONE_NUMBER]."
+    },
+    {
+        "text": "The annual report for XYZ Corporation can be found on their website at www.xyzcorp.com.au.",
+        "redacted_text": "The annual report for [ORGANIZATION] can be found on their website at www.xyzcorp.com.au."
+    },
+    {
+        "text": "Please contact Dr. Jane Doe for further assistance.",
+        "redacted_text": "Please contact Dr. [NAME] for further assistance."
+    },
+    {
+        "text": "The emergency contact number is 000.",
+        "redacted_text": "The emergency contact number is [PHONE_NUMBER]."
+    },
+    {
+        "text": "The IT support team at DataTech Solutions can be reached at itsupport@datatech.com or 1800 123 456.",
+        "redacted_text": "The IT support team at [ORGANIZATION] can be reached at [EMAIL] or [PHONE_NUMBER]."
+    },
+    {
+        "text": "The package was delivered to Unit 2B, 456 George Street, Sydney, NSW 2000.",
+        "redacted_text": "The package was delivered to [ADDRESS]."
+    },
+    {
+        "text": "I work at Google.",
+        "redacted_text": "I work at [ORGANIZATION]."
+    },
+    {
+        "text": "The shipment to 123 Pitt Street, Sydney, is for Emily Johnson. Her contact number is 0401 234 567.",
+        "redacted_text": "The shipment to [ADDRESS] is for [NAME]. Her contact number is [PHONE_NUMBER]."
+    },
+    {
+        "text": "Dr. David Brown from Stanford University will be the keynote speaker. His email is david.brown@stanford.edu.",
+        "redacted_text": "Dr. [NAME] from [ORGANIZATION] will be the keynote speaker. His email is [EMAIL]."
+    },
+    {
+        "text": "For inquiries, contact info@organization.net.",
+        "redacted_text": "For inquiries, contact [EMAIL]."
+    },
+    {
+        "text": "Please contact Sarah Thompson at sarah.thompson@company.com.au or 0422 111 222 to schedule a meeting.",
+        "redacted_text": "Please contact [NAME] at [EMAIL] or [PHONE_NUMBER] to schedule a meeting."
+    },
+    {
+        "text": "Please send the report to emily_johnson@school.edu.",
+        "redacted_text": "Please send the report to [EMAIL]."
+    },
+    {
+        "text": "John Doe lives at 123 George Street, Sydney and his email is johndoe@example.com",
+        "redacted_text": "[NAME] lives at [ADDRESS] and his email is [EMAIL]"
+    },
+    {
+        "text": "Please send your resume to hr@company.com. The position you're applying for is Software Engineer.",
+        "redacted_text": "Please send your resume to [EMAIL]. The position you're applying for is Software Engineer."
+    },
+    {
+        "text": "The email confirmation was sent to support@service.co.uk.",
+        "redacted_text": "The email confirmation was sent to [EMAIL]."
+    },
+    {
+        "text": "I'm having trouble logging into my account. My email address is helpme@please.com",
+        "redacted_text": "I'm having trouble logging into my account. My email address is [EMAIL]"
+    },
+    {
+        "text": "My address is 123 Collins Street, Melbourne, VIC 3000.",
+        "redacted_text": "My address is [ADDRESS]."
+    },
+    {
+        "text": "The new employee, Emily Davis, will be starting on Monday.",
+        "redacted_text": "The new employee, [NAME], will be starting on Monday."
+    },
+    {
+        "text": "Please send the invoice to PO Box 123, 101 St Georges Terrace, Perth, WA 6000.",
+        "redacted_text": "Please send the invoice to [ADDRESS]."
+    },
+    {
+        "text": "The conference registration confirmation was sent to jane.doe@example.com.",
+        "redacted_text": "The conference registration confirmation was sent to [EMAIL]."
+    },
+    {
+        "text": "My new office address is Level 10, 120 Collins Street, Melbourne, VIC 3000. Please update your records.",
+        "redacted_text": "My new office address is [ADDRESS]. Please update your records."
+    },
+    {
+        "text": "I met David Brown at the conference.",
+        "redacted_text": "I met [NAME] at the conference."
+    }
+]
