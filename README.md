@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to Montu's technical challenge challenge for Machine Learning Engineers! 🎉 In this challenge, you will build a service that can automatically identify and redact Personally Identifiable Information (PII) from text data.
+Welcome to Montu's technical challenge for Machine Learning Engineers! 🎉 In this challenge, you will build a service that can automatically identify and redact Personally Identifiable Information (PII) from text data.
 
 - The challenge is divided into two parts ([Model Development](#part-1-model-development) and [Service Development](#part-2-service-development)) and a bonus part ([Deployment](#bonus-part-deployment)).
   - You can complete the first two parts without deploying your service, but if you have the time, we encourage you to complete the deployment as well.
