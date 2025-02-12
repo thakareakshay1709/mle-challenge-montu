@@ -87,7 +87,7 @@ In this part, you will build a model that can automatically identify PII in text
 
    - [ ] **Task**: Load the dataset, preprocess the text data and get it into a shape that can be fed to the ML model.
 
-2. 🧠 **Model**: You will build a model that can identify PII in text data. You are free to frame the problem as you see fit. You can either start modelling from scratch or use a pre-trained model and fine-tune it on the preprocessed text data.
+2. 🧠 **Model**: You will build a model that can identify PII in text data. You are free to frame the problem as you see fit. You can either start modelling from scratch or use a pre-trained model (like [Hugging Face models](https://huggingface.co/models), [Spacy](https://spacy.io/)) and fine-tune it on the preprocessed text data.
 
    - Generally speaking, we are not looking for a perfect model, but a model that can identify PII in text data with reasonable accuracy. If you are time constrained and are debating spending time here or on the service development part, we would recommend spending more time on the service development part.
 
