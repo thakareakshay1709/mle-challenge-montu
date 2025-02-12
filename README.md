@@ -85,8 +85,7 @@ In this part, you will build a model that can automatically identify PII in text
     ]
     ```
 
-   - [ ] **Task**: Load the dataset and preprocess the text data. You can use any preprocessing techniques you like (e.g. tokenization, lemmatization, etc.).
-   - [ ] **Optional**: You can also use any other datasets you like to train your model. You can also use any other techniques you like to augment the text data. Any additional data you use should be included in the submission and the data augmentation should be part of your code.
+   - [ ] **Task**: Load the dataset, preprocess the text data and get it into a shape that can be fed to the ML model.
 
 2. 🧠 **Model**: You will build a model that can identify PII in text data. You are free to frame the problem as you see fit. You can either start modelling from scratch or use a pre-trained model and fine-tune it on the preprocessed text data.
 
@@ -94,7 +93,6 @@ In this part, you will build a model that can automatically identify PII in text
 
    - [ ] **Task**: Build a model according to the problem you have framed.
    - [ ] **Task**: Train your model on the preprocessed data from the previous data setp. You can use any evaluation metric that is appropriate to evaluate your model.
-   - [ ] **Optional**: You can also use any techniques you like (e.g. `cross-validation`, `hyperparameter tuning`, etc.) to improve your model accuracy but it is not necessary.
 
 ### Part 2: Service Development
 
