@@ -1,18 +1,17 @@
 version: '3'
 
 services:
-  pii-service:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app:
+    build: .
     ports:
       - "8000:8000"
     volumes:
+      - ./src:/app/src  # Mount the src directory
       - ./models:/app/models  # Persist models directory
-      - ./data:/app/data      # Persist training data
+      - ./requirements.txt:/app/requirements.txt  # Mount requirements.txt
     environment:
       - PYTHONPATH=/app
-    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    command: uvicorn src.main:redact_app --host 0.0.0.0 --port 8000
 
 volumes:
   models:
