@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 2. Run the service:
 ```bash
-uvicorn main:app --reload
+uvicorn src.main:redact_app --reload
 ```
 
 The service will be available at http://localhost:8000
@@ -114,36 +114,36 @@ The endpoint returns evaluation metrics including:
 GET /health
 ```
 
-## Docker Usage
+## Docker and Docker Compose
 
-1. Build the Docker image:
-```bash
-docker build -t pii-redaction-service .
-```
+The service can be run using Docker Compose which provides a development environment with volume mounts for code and model persistence.
 
-2. Run the container:
-```bash
-docker run -p 8000:8000 pii-redaction-service
-```
-
-3. Use Docker Compose:
+1. Start the service with Docker Compose:
 ```bash
 docker-compose up --build
 ```
 
-## Testing
+Key features of the Docker setup:
+- Automatic code reloading during development
+- Persistent model storage through Docker volumes
+- Hot-reloading of source code via volume mounts
+- Isolated Python environment with all dependencies
 
-Run tests with:
-```bash
-pytest -v tests/
-```
+The service will be available at http://localhost:8000
+
+### Volume Mounts
+The Docker Compose setup includes the following volume mounts:
+- `./src:/app/src`: Mounts the source code directory for hot-reloading
+- `./models:/app/models`: Persists trained models across container restarts
+- `./requirements.txt:/app/requirements.txt`: Ensures consistent dependency versions
+
+Note: The `models` and `data` volumes are defined in the Docker Compose file to persist model and data files across container restarts.
+
 
 ## Model Training
 
 To train the model for the first time:
-```bash
-python initial_train.py
-```
+Run `/train` endpoint without training data in payload so it will use the data from `/data/pii_data.json`
 
 This will train the model and save it to `models/pii_ner` directory.
 
