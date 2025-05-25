@@ -71,7 +71,7 @@ async def train_endpoint(request: TrainingData, trainer: PIIModelTrainer = Depen
     """
     try:
         # Use provided training data or default data if none provided
-        default_training_data = load_data()[0]
+        default_training_data = load_data()
         training_data = request.training_data if request.training_data else default_training_data['training_data']
         result = trainer.train(training_data, request.iterations)
         return result
