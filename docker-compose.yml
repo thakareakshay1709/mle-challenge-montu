@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  pii-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models  # Persist models directory
+      - ./data:/app/data      # Persist training data
+    environment:
+      - PYTHONPATH=/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+volumes:
+  models:
+  data:

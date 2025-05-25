@@ -1,107 +1,218 @@
-# 🤐 PII Redactor
+# PII Redaction Service
 
-## Overview
+A FastAPI service for redacting Personally Identifiable Information (PII) from text using spaCy NER.
 
-Welcome to Montu's technical challenge for Machine Learning Engineers! 🎉 In this challenge, you will build a service that can automatically identify and redact Personally Identifiable Information (PII) from text data.
+## Features
 
-- The challenge is divided into two parts ([Model Development](#part-1-model-development) and [Service Development](#part-2-service-development)).
-- We value your time and understand that you'll not be able to complete everything in a limited time. So feel free to timebox this challenge. As long as you are able to do submit a minimal E2E solution that demostrates your ability to work across the stack & tying all the pieces together, we are happy to tease the incomplete bits out a bit further in the technical interview.
-  - On an average, we expect the challenge to take around 3-4 hours of focused time to complete. But it can vary a lot based on other factors like your familiarity with the problem, the tools you use, your approach to the problem, etc. So, feel free to take as much time as you need. Also, do let us know if you are time-constrained. We can help you prioritize tasks and potentially cut down on the scope of the challenge depending on your situation.
+- Redacts PII from text using custom-trained spaCy model
+- Supports training with new data
+- Evaluates model performance
+- Docker support for easy deployment
+- CI/CD pipeline with Jenkins integration
+- Kubernetes deployment support
 
-### Assessment Criteria
+## Prerequisites
 
-Your solution will be assessed based on the following criteria (leaving this a bit open-ended to see how you interpret it):
+- Python 3.8+
+- Docker and Docker Compose
+- Kubernetes cluster (for deployment)
+- Jenkins (for CI/CD)
 
-- If we think of building a Machine Learning / Data Science application as building a lego castle, we are more interested in seeing how you would assemble all the individual pieces (data processing, model development, service development, deployment) to build the castle, rather than the shine on individual pieces themselves. We are looking for a solution that is well-structured, modular, and easy to understand.
+## Local Development
 
-**_p.s._**
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-- Throughout the challenge, feel free to make any assumptions you like, please document them in your code/submission.
-- Also, feel free to use any off-the-shelf libraries you like, but please be mindful that you are missing out on an opportunity to showcase your skills by using them (so, use them wisely).
-- And as a general rule of thumb, we would recommend spending more time on the service development/operationalising your solution end-to-end than model development.
+2. Run the service:
+```bash
+uvicorn main:app --reload
+```
 
-**Please do not hesitate to reach out to us if you have any questions or need any clarifications. We are here to help! And most importantly, we hope you have some fun along the way! 🥳**
+The service will be available at http://localhost:8000
 
-## Initial Setup and Submission Instructions
+## API Endpoints
 
-- you'll need the following tools to complete this challenge:
-  - Python 3.9 or higher
-  - Docker
-  - Any other tool/library you decide to use
+### Redact PII
+```
+POST /redact
+{
+    "text": "string"
+}
+```
 
-- **_Setup_**:
-  - create a **private** fork of this repository and clone it to your local machine
-    - a private fork is necessary to keep your solution private, which is important for the integrity of the challenge and can be done as follows:
+### Train Model
+```
+POST /train
+{
+    "training_data": [
+        {
+            "text": "string",
+            "redacted_text": "string"
+        }
+    ],
+    "iterations": 20
+}
+```
 
-        ```bash
-        git clone --bare <this_repo>
-        cd <this_repo>
-        git push --mirror <your_repo>
-        cd ..
-        rm -rf <this_repo>
-        ```
-
-    - you can then clone your private fork as follows:
-
-        ```bash
-        git clone <your_repo>
-        ```
-
-    - feel free to commit & push (as you usually would) to this newly created fork as you work on your solution
-  
-- **_Submission_**:
-  - once you have completed the challenge, please zip your solution and email/link it back to us
-    - please ensure that your solution includes all the code you wrote, as well as any instructions on how to run your code, your `.git` folder, trained models if any, any additional data if use, and any other relevant information (notes, assumptions, etc..) that you think we should know about your solution.
-
-    ```bash
-    # from the root of your repository
-    zip -r <your_name>_pii_redactor.zip .
-    ```
-
-## Problem Statement
-
-### Background
-
-Personally Identifiable Information (PII) in general is any data that could potentially identify a specific individual. Any information that can be used to distinguish one person from another and can be used for de-anonymizing anonymous data can be considered PII. Examples of PII include names, addresses, phone numbers, email addresses, social security numbers, etc.
-
-### Part 1: Model Development
-
-In this part, you will build a model that can automatically identify PII in text data and replace it with identified `PII category`. To limit the scope of this problem, we will only consider the following PII categories:
-
-- `NAME` - Names of people or organizations
-- `ORGANIZATION` - Names of organizations
-- `ADDRESS` - Addresses of people or organizations
-- `EMAIL` - Email addresses
-- `PHONE_NUMBER` - Phone numbers
-
-1. 💽 **Data**: We have provided a seed dataset `data/pii_data.json` in this repository to train your model. The dataset contains list of data points where each data point is a dictionary with two keys: `text` and `redacted_text`. The `text` key contains a piece of text with PII in it and the `redacted_text` key contains the redacted text with PII replaced by its category in-place. Here is an example data point:
-
-    ```json
-    [
-      {
-        "text": "Please contact Sarah Thompson at sarah.thompson@company.com.au or 0422 111 222 to schedule a meeting.",
-        "redacted_text": "Please contact [NAME] at [EMAIL] or [PHONE_NUMBER] to schedule a meeting."
-      }
+### Evaluate Model
+```
+POST /evaluate
+{
+    "test_data": [
+        {
+            "text": "string",
+            "redacted_text": "string"
+        }
     ]
-    ```
+}
+```
 
-   - [ ] **Task**: Load the dataset, preprocess the text data and get it into a shape that can be fed to the ML model.
+Example payloads:
 
-2. 🧠 **Model**: You will build a model that can identify PII in text data. You are free to frame the problem as you see fit. You can either start modelling from scratch or use a pre-trained model (like [Hugging Face models](https://huggingface.co/models), [Spacy](https://spacy.io/)) and fine-tune it on the preprocessed text data.
+1. Basic evaluation:
+```json
+{
+    "test_data": [
+        {
+            "text": "John Smith works at Google",
+            "redacted_text": "[NAME] works at [ORGANIZATION]"
+        },
+        {
+            "text": "Contact me at john.smith@example.com or +1 234 567 8900",
+            "redacted_text": "Contact me at [EMAIL] or [PHONE_NUMBER]"
+        }
+    ]
+}
+```
 
-   - Generally speaking, we are not looking for a perfect model, but a model that can identify PII in text data with reasonable accuracy. If you are time constrained and are debating spending time here or on the service development part, we would recommend spending more time on the service development part.
+2. With multiple categories:
+```json
+{
+    "test_data": [
+        {
+            "text": "Sarah Thompson lives in Sydney, NSW",
+            "redacted_text": "[NAME] lives in [ADDRESS], [ADDRESS]"
+        },
+        {
+            "text": "The CEO of Microsoft is Satya, email: ceo@microsoft.com",
+            "redacted_text": "The CEO of [ORGANIZATION] is [NAME], email: [EMAIL]"
+        }
+    ]
+}
+```
 
-   - [ ] **Task**: Build a model according to the problem you have framed.
-   - [ ] **Task**: Train your model on the preprocessed data from the previous data setp. You can use any evaluation metric that is appropriate to evaluate your model.
+The endpoint returns evaluation metrics including:
+- Precision
+- Recall
+- F1 Score
+- Per-category metrics
 
-### Part 2: Service Development
+### Health Check
+```
+GET /health
+```
 
-In this part, you will build a service that can redact PII from text data. You will use the model you built in the first part to identify PII in text data and redact it.
+## Docker Usage
 
-3. 🕸️ **Service Development**: You will build a service that can redact PII from text data. You are free to define the interface of your service as you like.
+1. Build the Docker image:
+```bash
+docker build -t pii-redaction-service .
+```
 
-   - [ ] **Task**: Build a service that can accept a piece of text as input and return the redacted text with PII replaced by its category.
+2. Run the container:
+```bash
+docker run -p 8000:8000 pii-redaction-service
+```
 
-4. 🎡 **_NOTE_**: Please be mindful that building a robust ML/DS application is not about doing modelling and service development in isolation, but rather making them work together hand in hand. So, please consider operationalizing your pipelines end-to-end, testing as appropriate, linting and packaging your code/models, adding CI/CD workflows etc... as necessary. Refer to the [assessment criteria](#assessment-criteria) for some more intuition.
+3. Use Docker Compose:
+```bash
+docker-compose up --build
+```
 
-And that's it! 🎊 We can't wait to see what you come up with! 🚀
+## Testing
+
+Run tests with:
+```bash
+pytest -v tests/
+```
+
+## Model Training
+
+To train the model for the first time:
+```bash
+python initial_train.py
+```
+
+This will train the model and save it to `models/pii_ner` directory.
+
+## CI/CD Pipeline Setup
+
+1. Configure Jenkins credentials:
+   - Docker registry credentials
+   ```groovy
+   docker-registry-credentials:
+     - Username: your Docker registry username
+     - Password: your Docker registry password
+   ```
+   
+   - Kubernetes credentials
+   ```groovy
+   k8s-namespace:
+     - String: your Kubernetes namespace
+   
+   k8s-context:
+     - String: your Kubernetes context
+   ```
+
+2. Update Jenkinsfile configuration:
+   - Set `DOCKER_REGISTRY` to your Docker registry URL
+   - Update email address in failure notification
+
+3. Configure Docker registry:
+   - Ensure you have access to a Docker registry
+   - Set up proper authentication
+
+## Kubernetes Deployment
+
+1. Deploy to Kubernetes:
+```bash
+kubectl apply -f k8s/deployment.yaml -n your-namespace
+kubectl apply -f k8s/service.yaml -n your-namespace
+```
+
+2. Access the service:
+   - Internal: `pii-redaction-service.your-namespace.svc.cluster.local:8000`
+   - External: Use the LoadBalancer IP/hostname
+
+## Monitoring
+
+The service includes health checks that can be monitored:
+- Liveness probe: `/health` endpoint
+- Readiness probe: `/health` endpoint
+
+## Error Handling
+
+The service returns appropriate HTTP status codes:
+- 200: Success
+- 400: Bad Request
+- 500: Internal Server Error
+- 503: Service Unavailable (health check failures)
+
+## API Usage
+
+Send a POST request to `/redact` with a JSON body containing the text to redact:
+
+```bash
+curl -X POST http://localhost:8000/redact \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Please contact Sarah Thompson at sarah.thompson@company.com.au or 0422 111 222 to schedule a meeting."}'
+```
+
+Response:
+```json
+{
+  "redacted_text": "Please contact [NAME] at [EMAIL] or [PHONE_NUMBER] to schedule a meeting."
+}
+```
